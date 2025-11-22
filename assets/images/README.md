@@ -1,78 +1,90 @@
 # FitYaar Logo Assets
 
-## Logo Files
+## Available Logo Variations
 
-This directory contains the official FitYaar logo assets.
+All logo files are ready for use across different platforms and contexts.
 
-### Current Logo: Chain Link Design (Logo 1)
+### 1. Full Logo with Wordmark
+**File**: `logo_full.png`
+- Icon + "FitYaar" text
+- Colors: Black + Pastel Purple (#B4A5F6)
+- **Use for**: Splash screen, marketing, website header
 
-**Main Logo**: `logo.png`
-- Full logo with icon and wordmark
-- Colors: Black (#000000) + Pastel Purple (#B4A5F6)
-- Use for: Splash screen, marketing materials, website
+### 2. Wordmark Only
+**File**: `logo_wordmark.png`
+- "FitYaar" text with purple dot on "i"
+- No icon
+- **Use for**: Navigation bars, app headers, compact spaces
 
-### Logo Variations Needed
+### 3. Monochrome Full Logo
+**File**: `logo_monochrome.png`
+- Full logo in grayscale (black + gray)
+- **Use for**: Print materials, single-color contexts, dark mode alternative
 
-Please create and add the following variations:
+### 4. Icon Only (App Icon)
+**File**: `icon_only.png`
+- Just the hexagon with chain link symbol
+- No text
+- **Use for**: App icon (iOS/Android), favicon, profile pictures
 
-1. **App Icon** (`icon.png`)
-   - Size: 1024x1024px
-   - Icon only (hexagon with chain link)
-   - No text, just the symbol
-   - Use for: iOS/Android app icon
-
-2. **Wordmark Only** (`logo_wordmark.png`)
-   - Just "FitYaar" text with purple dot on "i"
-   - Use for: Navigation bars, headers
-
-3. **Black Version** (`logo_black.png`)
-   - All black, no purple
-   - Use for: Print materials, single-color contexts
-
-4. **White Version** (`logo_white.png`)
-   - All white
-   - Use for: Dark backgrounds (if needed)
-
-5. **Icon Only** (`icon_only.png`)
-   - Just the hexagon symbol
-   - Transparent background
-   - Use for: Favicons, small spaces
-
-### Design Specifications
-
-**Colors:**
-- Primary: #000000 (Black)
-- Accent: #B4A5F6 (Pastel Purple)
-- Background: #FFFFFF (White) or Transparent
-
-**Typography:**
-- Font: SF Pro Display Bold (or similar)
-- Text: "FitYaar"
-- Purple dot on "i"
-
-### File Formats
-
-For development, we'll need:
-- PNG (for general use)
-- SVG (for scalability)
-- PDF (for print)
-
-### App Icon Sizes
-
-iOS requires multiple sizes:
-- 1024x1024 (App Store)
-- 180x180 (iPhone)
-- 167x167 (iPad Pro)
-- 152x152 (iPad)
-- 120x120 (iPhone)
-- 76x76 (iPad)
-
-Android requires:
-- 512x512 (Play Store)
-- Adaptive icon layers (foreground + background)
+### 5. Monochrome Small Logo
+**File**: `logo_monochrome_small.png`
+- Compact monochrome version
+- **Use for**: Small spaces, watermarks, secondary branding
 
 ---
 
-**Logo Status**: ✅ Approved and ready for use
-**Design**: Chain Link (Logo 1)
-**Date**: 2025-11-23
+## Usage Guidelines
+
+### Light Mode (Primary)
+- Use `logo_full.png` or `logo_wordmark.png`
+- Black text + Pastel Purple accent
+- White or light background
+
+### Dark Mode (If Needed)
+- Use `logo_monochrome.png` with inverted colors
+- Or create white version of logo
+- Dark background
+
+### App Icons
+- **iOS**: Use `icon_only.png` at 1024x1024px
+- **Android**: Use `icon_only.png` for adaptive icon foreground
+- iOS will auto-apply rounded corners
+- Android needs separate foreground/background layers
+
+---
+
+## Color Specifications
+
+**Primary Colors:**
+- Black: `#000000`
+- Pastel Purple: `#B4A5F6`
+- White: `#FFFFFF`
+
+**Monochrome:**
+- Black: `#000000`
+- Gray: `#999999` or `#CCCCCC`
+- White: `#FFFFFF`
+
+---
+
+## File Inventory
+
+✅ `logo.png` - Original full logo
+✅ `logo_full.png` - Full logo with wordmark (color)
+✅ `logo_wordmark.png` - Text only (color)
+✅ `logo_monochrome.png` - Full logo (grayscale)
+✅ `icon_only.png` - Icon symbol only
+✅ `logo_monochrome_small.png` - Compact monochrome
+
+---
+
+## Next Steps for App Development
+
+When we start building the Flutter app, we'll:
+1. Generate proper app icon sizes (iOS: 1024x1024, Android: 512x512)
+2. Create adaptive icon for Android (foreground + background layers)
+3. Add logo to splash screen
+4. Use wordmark in navigation bar
+
+**Status**: ✅ All logo variations ready for development!
