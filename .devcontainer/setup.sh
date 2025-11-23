@@ -7,7 +7,7 @@ apt-get update
 
 # Install required packages for ADB
 echo "📱 Installing ADB and USB tools..."
-apt-get install -y android-tools-adb android-tools-fastboot usbutils
+apt-get install -y android-tools-adb android-tools-fastboot android-sdk-platform-tools usbutils
 
 # Install additional dependencies
 apt-get install -y \
@@ -18,6 +18,8 @@ apt-get install -y \
     zip \
     libglu1-mesa \
     openjdk-17-jdk \
+    npm \ 
+    
     wget
 
 # Set JAVA_HOME
@@ -50,10 +52,16 @@ echo ""
 echo "✅ Setup complete!"
 echo ""
 echo "📱 To connect your phone via Remote ADB:"
-echo "1. Install remote-adb on your laptop: npm install -g remote-adb"
+echo "1. Install remote-adb on your laptop the below tools"
+echo "1.1 If apt-based (Linux)"
+echo "sudo apt update"
+echo "sudo apt install android-sdk-platform-tools ngrok"
+echo "1.2 If Homebrew macOS"
+echo "brew install android-platform-tools ngrok"
+echo "1.3 ngrok config add-authtoken <your-token>"
 echo "2. Connect phone via USB to laptop"
-echo "3. Run on laptop: remote-adb --host 0.0.0.0"
-echo "4. In Codespaces, run: adb connect <YOUR_LAPTOP_IP>:5037"
+echo "3. Run on laptop: adb start-server && ngrok tcp 5037"
+echo "4. In Codespaces, run: export ADB_SERVER_SOCKET=tcp:<YOUR_NGROK_URL>:<YOUR_NGROK_PORT>"
 echo "5. Verify: adb devices"
 echo ""
 echo "🚀 Ready to build FitYaar!"
