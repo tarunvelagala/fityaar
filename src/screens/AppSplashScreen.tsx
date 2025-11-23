@@ -16,7 +16,7 @@ interface SplashScreenProps {
 // Fitness-related emojis
 const fitnessEmojis = ['🏋️', '🏃', '🚴', '🏊', '🧘', '⛹️', '🤸', '🥊', '⚽'];
 
-export const SplashScreen: React.FC<SplashScreenProps> = ({ onFinish }) => {
+export const AppSplashScreen: React.FC<SplashScreenProps> = ({ onFinish }) => {
     const fadeAnim = useRef(new Animated.Value(0)).current;
     const scaleAnim = useRef(new Animated.Value(1)).current;
 
