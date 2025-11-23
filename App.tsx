@@ -3,13 +3,20 @@
  * iOS-Inspired Minimalist Design
  */
 
+import { useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, View } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { Text, Card } from "./src/components/common";
+import { SplashScreen } from "./src/screens/SplashScreen";
 import { colors, spacing } from "./src/theme";
 
 export default function App() {
+  const [showSplash, setShowSplash] = useState(true);
+
+  if (showSplash) {
+    return <SplashScreen onFinish={() => setShowSplash(false)} />;
+  }
   return (
     <SafeAreaProvider>
       <SafeAreaView style={styles.container}>
