@@ -27,7 +27,6 @@ export const AppSplashScreen: React.FC<SplashScreenProps> = ({ onFinish }) => {
 
     useEffect(() => {
         // Keep the native splash visible until we hide it manually
-        ExpoSplashScreen.preventAutoHideAsync();
 
         // Simple fade in
         Animated.timing(fadeAnim, {
