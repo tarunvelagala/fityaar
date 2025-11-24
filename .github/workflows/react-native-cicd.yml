@@ -24,6 +24,10 @@ env:
   EXPO_TOKEN: ${{ secrets.EXPO_TOKEN_FIT_YAAR }}
   NODE_OPTIONS: --openssl-legacy-provider
 
+permissions:
+  contents: write # Required to create releases and upload artifacts
+  pull-requests: read
+
 jobs:
   check-skip:
     runs-on: ubuntu-latest
