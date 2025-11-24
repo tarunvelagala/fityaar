@@ -4,7 +4,7 @@
  */
 
 import React, { useEffect, useRef, useState } from 'react';
-import { View, StyleSheet, Animated, Image, useColorScheme } from 'react-native';
+import { View, StyleSheet, Animated, useColorScheme } from 'react-native';
 import { Text } from '../components/common';
 import { colors, spacing } from '../theme';
 import * as ExpoSplashScreen from 'expo-splash-screen';
@@ -76,13 +76,6 @@ export const AppSplashScreen: React.FC<SplashScreenProps> = ({ onFinish }) => {
     return (
         <View style={[styles.container, { backgroundColor }]}>
             <Animated.View style={[styles.content, { opacity: fadeAnim }]}>
-                {/* App Logo */}
-                <Image
-                    source={require('../../assets/images/logo_full.png')}
-                    style={styles.logo}
-                    resizeMode="contain"
-                />
-
                 {/* Bouncing Fitness Icon */}
                 <Animated.View style={[styles.dumbbellContainer, { transform: [{ scale: scaleAnim }] }]}>
                     <Text variant="display" style={styles.dumbbell}>
@@ -108,11 +101,6 @@ const styles = StyleSheet.create({
     content: {
         alignItems: 'center',
         justifyContent: 'center',
-    },
-    logo: {
-        width: 256,
-        height: 256,
-        marginBottom: spacing.lg,
     },
     dumbbellContainer: {
         marginVertical: spacing.lg,
