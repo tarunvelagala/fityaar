@@ -6,7 +6,10 @@
     "build": {
         "development": {
             "developmentClient": true,
-            "distribution": "internal"
+            "distribution": "internal",
+            "ios": {
+                "resourceClass": "m-medium"
+            }
         },
         "preview": {
             "distribution": "internal",
@@ -14,7 +17,16 @@
                 "buildType": "apk"
             },
             "ios": {
-                "simulator": false
+                "resourceClass": "m-medium"
+            }
+        },
+        "production-apk": {
+            "distribution": "internal",
+            "android": {
+                "buildType": "apk"
+            },
+            "ios": {
+                "resourceClass": "m-medium"
             }
         },
         "production": {
@@ -22,21 +34,11 @@
                 "buildType": "app-bundle"
             },
             "ios": {
-                "simulator": false
+                "resourceClass": "m-medium"
             }
         }
     },
     "submit": {
-        "production": {
-            "android": {
-                "serviceAccountKeyPath": "./service-account-key.json",
-                "track": "internal"
-            },
-            "ios": {
-                "appleId": "your-apple-id@example.com",
-                "ascAppId": "your-asc-app-id",
-                "appleTeamId": "your-team-id"
-            }
-        }
+        "production": {}
     }
 }

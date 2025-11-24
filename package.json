@@ -1,6 +1,7 @@
 {
   "name": "fityaar",
   "version": "1.0.0",
+  "packageManager": "yarn@4.0.0",
   "main": "index.ts",
   "scripts": {
     "start": "expo start",
