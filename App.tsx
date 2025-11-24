@@ -1,26 +1,30 @@
-/**
- * FitYaar - Workout Tracker App
- * iOS-Inspired Minimalist Design
- */
+// App.tsx
+import React from 'react';
+import { View, StatusBar } from 'react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { ThemeProvider, useTheme } from '@theme/ThemeContext';
+import HomeScreen from '@screens/HomeScreen';
 
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text } from "react-native";
-import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+const MainLayout = () => {
+  const { colors, isDark } = useTheme();
+
+  return (
+    <View style={{ flex: 1, backgroundColor: colors.background }}>
+      <StatusBar
+        barStyle={isDark ? 'light-content' : 'dark-content'}
+        backgroundColor={colors.background}
+      />
+      <HomeScreen />
+    </View>
+  );
+};
 
 export default function App() {
   return (
     <SafeAreaProvider>
-      <SafeAreaView style={styles.container}>
-        <StatusBar style="auto" />
-        <Text>FitYaar</Text>
-      </SafeAreaView>
+      <ThemeProvider>
+        <MainLayout />
+      </ThemeProvider>
     </SafeAreaProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-});
