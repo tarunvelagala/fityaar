@@ -43,6 +43,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
+
+      - name: 🔧 Enable Corepack
+        run: corepack enable
+
+      - name: 📦 Setup Yarn cache
+        uses: actions/setup-node@v4
+        with:
           cache: "yarn"
 
       - name: 📦 Get yarn cache directory path
@@ -81,6 +88,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
+
+      - name: 🔧 Enable Corepack
+        run: corepack enable
+
+      - name: 📦 Setup Yarn cache
+        uses: actions/setup-node@v4
+        with:
           cache: "yarn"
 
       - name: 📦 Get yarn cache directory path
