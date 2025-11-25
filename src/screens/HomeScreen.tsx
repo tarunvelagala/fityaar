@@ -1,83 +1,66 @@
 // src/screens/HomeScreen.tsx
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { useTheme } from '../theme/ThemeContext';
+import { View, StyleSheet, ScrollView, RefreshControl } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { useTheme } from '@theme/ThemeContext';
+import { HomeHeader } from '@components/home/HomeHeader';
+import { QuickStats } from '@components/home/QuickStats';
+import { QuickActions } from '@components/home/QuickActions';
+import { RecentActivity } from '@components/home/RecentActivity';
 
 export default function HomeScreen() {
-    const { colors } = useTheme(); // <--- Magic happens here
+    const { colors } = useTheme();
+    const [refreshing, setRefreshing] = React.useState(false);
 
-    // Dynamic Styles using the colors
-    const styles = getStyles(colors);
+    const onRefresh = React.useCallback(() => {
+        setRefreshing(true);
+        // Simulate refresh
+        setTimeout(() => {
+            setRefreshing(false);
+        }, 2000);
+    }, []);
 
     return (
-        <View style={styles.container}>
-            <View style={styles.card}>
-                <MaterialCommunityIcons
-                    name="star-four-points"
-                    size={32}
-                    color={colors.icon} // Uses Black in light, Purple in dark
-                />
-                <Text style={styles.title}>Pastel System</Text>
-                <Text style={styles.subtitle}>
-                    This text automatically switches color based on your device settings.
-                </Text>
+        <SafeAreaView style={[styles.safeArea, { backgroundColor: colors.background }]}>
+            <ScrollView
+                style={styles.container}
+                contentContainerStyle={styles.content}
+                refreshControl={
+                    <RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor={colors.primary} />
+                }
+                showsVerticalScrollIndicator={false}
+            >
+                <HomeHeader userName="Tarun" />
 
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>Primary Action</Text>
-                </TouchableOpacity>
-            </View>
-        </View>
+                <View style={styles.section}>
+                    <QuickStats />
+                </View>
+
+                <View style={styles.section}>
+                    <QuickActions />
+                </View>
+
+                <View style={styles.section}>
+                    <RecentActivity />
+                </View>
+            </ScrollView>
+        </SafeAreaView>
     );
 }
 
-// Helper to generate styles with current theme
-// This allows you to keep StyleSheet logic clean
-const getStyles = (colors: any) => StyleSheet.create({
+const styles = StyleSheet.create({
+    safeArea: {
+        flex: 1,
+    },
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: colors.background,
     },
-    card: {
-        width: '80%',
-        padding: 24,
-        borderRadius: 20,
-        backgroundColor: colors.card,
-        alignItems: 'center',
-        // Shadow for iOS
-        shadowColor: colors.textPrimary,
-        shadowOffset: { width: 0, height: 4 },
-        shadowOpacity: 0.1,
-        shadowRadius: 12,
-        // Shadow for Android
-        elevation: 5,
-    },
-    title: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        color: colors.textPrimary,
-        marginTop: 16,
-        marginBottom: 8,
-    },
-    subtitle: {
-        fontSize: 16,
-        color: colors.textSecondary,
-        textAlign: 'center',
-        marginBottom: 24,
-    },
-    button: {
-        backgroundColor: colors.primary, // Your #B4A5F6
-        paddingVertical: 12,
+    content: {
         paddingHorizontal: 24,
-        borderRadius: 12,
-        width: '100%',
-        alignItems: 'center',
+        paddingTop: 12,
+        paddingBottom: 40,
     },
-    buttonText: {
-        color: '#000', // Text on the pastel purple should likely be dark for contrast
-        fontWeight: '600',
-        fontSize: 16,
+    section: {
+        marginBottom: 32,
     },
 });
