@@ -14,21 +14,10 @@ export const QuickActions = () => {
                 icon={<MaterialCommunityIcons name="plus" size={24} color="white" />}
                 iconPosition="left"
                 style={styles.primaryButton}
+                fullWidth
             >
                 Start New Workout
             </Button>
-
-            <View style={styles.secondaryRow}>
-                <Button
-                    variant="secondary"
-                    onPress={() => console.log('Log Activity')}
-                    style={styles.secondaryButton}
-                    icon={<MaterialCommunityIcons name="pencil" size={20} color="black" />}
-                    iconPosition="left"
-                >
-                    Log Activity
-                </Button>
-            </View>
         </View>
     );
 };
@@ -38,12 +27,6 @@ const styles = StyleSheet.create({
         marginBottom: spacing.xl,
     },
     primaryButton: {
-        marginBottom: spacing.md,
-    },
-    secondaryRow: {
-        flexDirection: 'row',
-    },
-    secondaryButton: {
-        flex: 1,
+        // No extra margin needed if it's the only button
     },
 });
