@@ -3461,6 +3461,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"expo-haptics@npm:^15.0.7":
+  version: 15.0.7
+  resolution: "expo-haptics@npm:15.0.7"
+  peerDependencies:
+    expo: "*"
+  checksum: 72daaf272b6ab3f650d76d901b3f744d497c9120b77d274560cccff6da985c867256212108c2057843996fad5ea8905614aae4747a217d6502f0c0156eca6d5d
+  languageName: node
+  linkType: hard
+
 "expo-keep-awake@npm:~15.0.7":
   version: 15.0.7
   resolution: "expo-keep-awake@npm:15.0.7"
@@ -3638,6 +3647,7 @@ __metadata:
     "@types/react": "npm:~19.1.0"
     "@types/react-native": "npm:^0.72.8"
     expo: "npm:~54.0.25"
+    expo-haptics: "npm:^15.0.7"
     react: "npm:19.1.0"
     react-native: "npm:0.81.5"
     react-native-safe-area-context: "npm:~5.6.0"
