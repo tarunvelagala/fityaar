@@ -21,8 +21,8 @@ const ActivityItem: React.FC<ActivityItemProps> = ({ title, date, duration, exer
     return (
         <Card variant={variant} padding="medium" style={styles.card} onPress={() => { }}>
             <View style={styles.cardHeader}>
-                <Text variant="subheading">{title}</Text>
-                <Text variant="caption" style={{ opacity: 0.7 }}>{date}</Text>
+                <Text variant="body" style={{ fontWeight: '500' }}>{title}</Text>
+                <Text variant="caption" style={{ opacity: 0.6 }}>{date}</Text>
             </View>
 
             <View style={styles.cardStats}>

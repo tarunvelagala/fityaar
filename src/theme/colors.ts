@@ -8,7 +8,7 @@ const palette = {
     paleGray: '#fafbfc',        // Main screen background (very light gray)
 
     // Brand & Icon Colors
-    brandGreen: '#91CC64',      // Primary Brand Color (Your requested Green)
+    brandGreen: '#2DBA4E',      // Primary Brand Color (Your requested Green)
 
     // Pastel/Accent Colors
     accentA: '#F4D89A',         // Soft Gold/Peach (Abstract shapes)
