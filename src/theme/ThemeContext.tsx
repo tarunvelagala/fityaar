@@ -1,14 +1,8 @@
 // src/theme/ThemeContext.tsx
-import React, { createContext, useContext, ReactNode } from 'react';
+import React, { createContext, useContext, ReactNode, useState } from 'react';
 import { useColorScheme } from 'react-native';
-import { lightColors, darkColors, ThemeColors } from './colors';
-
-// Define the shape of the context
-type ThemeContextType = {
-    colors: ThemeColors;
-    isDark: boolean;
-    theme: 'light' | 'dark';
-};
+import { lightColors, darkColors } from './colors';
+import { ThemeContextType } from './types';
 
 // Create the Context
 export const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -16,15 +10,24 @@ export const ThemeContext = createContext<ThemeContextType | undefined>(undefine
 // Create the Provider
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     // This hook listens to the system setting (e.g., iOS Control Center)
-    const colorScheme = useColorScheme();
+    const systemColorScheme = useColorScheme();
 
-    const isDark = colorScheme === 'dark';
+    // Manage theme state manually to allow toggling
+    // Initialize with system preference or default to light
+    const [theme, setTheme] = useState<'light' | 'dark'>(systemColorScheme || 'light');
+
+    const isDark = theme === 'dark';
     const colors = isDark ? darkColors : lightColors;
+
+    const toggleTheme = () => {
+        setTheme(prev => prev === 'light' ? 'dark' : 'light');
+    };
 
     const value = {
         colors,
         isDark,
-        theme: colorScheme || 'light',
+        theme,
+        toggleTheme,
     };
 
     return (

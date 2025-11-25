@@ -5,4 +5,5 @@ export type ThemeContextType = {
     colors: ThemeColors;
     isDark: boolean;
     theme: 'light' | 'dark';
+    toggleTheme: () => void;
 };

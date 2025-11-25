@@ -5,8 +5,13 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { ThemeProvider, useTheme } from '@theme/ThemeContext';
 import HomeScreen from '@screens/HomeScreen';
 
+import { NavigationContainer } from '@react-navigation/native';
+import { getNavigationTheme } from '@theme/navigationTheme';
+import TabNavigator from '@navigation/TabNavigator';
+
 const MainLayout = () => {
   const { colors, isDark } = useTheme();
+  const navigationTheme = getNavigationTheme(colors, isDark);
 
   return (
     <View style={{ flex: 1, backgroundColor: colors.background }}>
@@ -14,7 +19,9 @@ const MainLayout = () => {
         barStyle={isDark ? 'light-content' : 'dark-content'}
         backgroundColor={colors.background}
       />
-      <HomeScreen />
+      <NavigationContainer theme={navigationTheme}>
+        <TabNavigator />
+      </NavigationContainer>
     </View>
   );
 };
