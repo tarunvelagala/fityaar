@@ -6,6 +6,7 @@ import { useTheme } from '@theme/ThemeContext';
 import { spacing, borderRadius } from '@theme/constants';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { WeeklyProgress } from './WeeklyProgress';
+import { ICON_NAMES, ICON_SIZES } from '@constants/index';
 
 type HomeHeaderProps = {
     userName?: string;
@@ -50,7 +51,7 @@ export const HomeHeader: React.FC<HomeHeaderProps> = ({ userName = 'Guest' }) =>
             </View>
 
             <View style={[styles.avatarContainer, { backgroundColor: colors.card, borderColor: colors.border, borderWidth: 1 }]}>
-                <MaterialCommunityIcons name="account" size={24} color={colors.textPrimary} />
+                <MaterialCommunityIcons name={ICON_NAMES.ACCOUNT} size={ICON_SIZES.LARGE} color={colors.textPrimary} />
             </View>
         </View>
     );

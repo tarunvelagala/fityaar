@@ -6,6 +6,7 @@ import { Card } from '@components/common/Card';
 import { useTheme } from '@theme/ThemeContext';
 import { spacing } from '@theme/constants';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { ICON_NAMES, ICON_SIZES, STAT_COLORS } from '@constants/index';
 
 type StatItemProps = {
     label: string;
@@ -20,7 +21,7 @@ const StatItem: React.FC<StatItemProps> = ({ label, value, icon, color }) => {
     return (
         <View style={styles.statItem}>
             <View style={[styles.iconContainer, { backgroundColor: color + '20' }]}>
-                <MaterialCommunityIcons name={icon} size={20} color={color} />
+                <MaterialCommunityIcons name={icon} size={ICON_SIZES.MEDIUM} color={color} />
             </View>
             <Text variant="heading" style={{ fontSize: 20, marginTop: 8 }}>{value}</Text>
             <Text variant="caption" style={{ color: colors.textSecondary }}>{label}</Text>
@@ -37,22 +38,22 @@ export const QuickStats = () => {
                 <StatItem
                     label="Workouts"
                     value="3"
-                    icon="dumbbell"
+                    icon={ICON_NAMES.DUMBBELL}
                     color={colors.primary}
                 />
                 <View style={[styles.divider, { backgroundColor: colors.border }]} />
                 <StatItem
                     label="Streak"
                     value="5"
-                    icon="fire"
-                    color="#FF9F43"
+                    icon={ICON_NAMES.FIRE}
+                    color={STAT_COLORS.STREAK}
                 />
                 <View style={[styles.divider, { backgroundColor: colors.border }]} />
                 <StatItem
                     label="Minutes"
                     value="120"
-                    icon="clock-outline"
-                    color="#54A0FF"
+                    icon={ICON_NAMES.CLOCK}
+                    color={STAT_COLORS.MINUTES}
                 />
             </View>
         </View>

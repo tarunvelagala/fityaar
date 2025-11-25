@@ -5,20 +5,21 @@ import { Button } from '@components/common/Button';
 import { spacing } from '@theme/constants';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useTheme } from '@theme/ThemeContext';
+import { ICON_NAMES, ICON_SIZES, ButtonVariant, COMMON_COLORS } from '@constants/index';
 
 export const QuickActions = () => {
     const { isDark } = useTheme();
 
     // In light mode, button is black -> icon white
     // In dark mode, button is white -> icon black
-    const iconColor = isDark ? 'black' : 'white';
+    const iconColor = isDark ? COMMON_COLORS.BLACK : COMMON_COLORS.WHITE;
 
     return (
         <View style={styles.container}>
             <Button
-                variant="primary"
+                variant={ButtonVariant.PRIMARY}
                 onPress={() => console.log('Start Workout')}
-                icon={<MaterialCommunityIcons name="plus" size={24} color={iconColor} />}
+                icon={<MaterialCommunityIcons name={ICON_NAMES.PLUS} size={ICON_SIZES.LARGE} color={iconColor} />}
                 iconPosition="left"
                 style={styles.primaryButton}
                 fullWidth
