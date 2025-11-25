@@ -38,10 +38,17 @@ export const Card: React.FC<CardProps> = ({
     // Get background color based on variant
     const getBackgroundColor = (variant: CardVariant): string => {
         if (isDark && variant !== 'default') {
-            // In dark mode, use a slightly lighter dark for "pastel" cards to distinguish them,
-            // or just use the standard dark card color to ensure text readability.
-            // Let's use the standard dark card color for now to fix the contrast issue.
-            return colors.card;
+            // Dark mode pastel variants (muted, darker versions of the light pastels)
+            const darkPastelColors = {
+                'pastel-blue': '#1A2A3A',   // Dark muted blue
+                'pastel-beige': '#2C2A25',  // Dark muted beige
+                'pastel-green': '#1E3324',  // Dark muted green
+                'pastel-yellow': '#332E1E', // Dark muted yellow
+                'pastel-pink': '#331E26',   // Dark muted pink
+                'pastel-purple': '#2A1E33', // Dark muted purple
+                'default': colors.card,
+            };
+            return darkPastelColors[variant] || colors.card;
         }
 
         const pastelColors = {
