@@ -32,11 +32,18 @@ export const Card: React.FC<CardProps> = ({
     style,
     children,
 }) => {
-    const { colors } = useTheme();
+    const { colors, isDark } = useTheme();
     const scaleAnim = useRef(new Animated.Value(1)).current;
 
     // Get background color based on variant
     const getBackgroundColor = (variant: CardVariant): string => {
+        if (isDark && variant !== 'default') {
+            // In dark mode, use a slightly lighter dark for "pastel" cards to distinguish them,
+            // or just use the standard dark card color to ensure text readability.
+            // Let's use the standard dark card color for now to fix the contrast issue.
+            return colors.card;
+        }
+
         const pastelColors = {
             'default': colors.card,
             'pastel-blue': '#D4E7F7',

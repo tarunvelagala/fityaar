@@ -44,7 +44,7 @@ export const Button: React.FC<ButtonProps> = ({
     style,
     textStyle,
 }) => {
-    const { colors } = useTheme();
+    const { colors, isDark } = useTheme();
     const scaleAnim = useRef(new Animated.Value(1)).current;
 
     // Create press animations
@@ -104,11 +104,11 @@ export const Button: React.FC<ButtonProps> = ({
             case 'primary':
                 return {
                     container: {
-                        backgroundColor: colors.textPrimary, // Black for primary (strongest CTA)
+                        backgroundColor: colors.textPrimary, // Black (light) / White (dark)
                         borderRadius: borderRadius.medium,
                     },
                     text: {
-                        color: colors.card,
+                        color: isDark ? '#000000' : '#FFFFFF', // Invert text color for contrast
                         fontWeight: '600' as const,
                     },
                 };

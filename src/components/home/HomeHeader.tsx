@@ -5,6 +5,7 @@ import { Text } from '@components/common/Text';
 import { useTheme } from '@theme/ThemeContext';
 import { spacing, borderRadius } from '@theme/constants';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { WeeklyProgress } from './WeeklyProgress';
 
 type HomeHeaderProps = {
     userName?: string;
@@ -45,6 +46,7 @@ export const HomeHeader: React.FC<HomeHeaderProps> = ({ userName = 'Guest' }) =>
                 <Text variant="display" style={{ color: colors.textPrimary, fontSize: 32 }}>
                     Hi, {userName}
                 </Text>
+                <WeeklyProgress />
             </View>
 
             <View style={[styles.avatarContainer, { backgroundColor: colors.card, borderColor: colors.border, borderWidth: 1 }]}>
@@ -58,7 +60,7 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        alignItems: 'center',
+        alignItems: 'flex-start', // Changed to flex-start for better alignment with graph
         marginBottom: spacing.xl,
         marginTop: spacing.sm,
     },
@@ -72,5 +74,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         marginLeft: spacing.md,
+        marginTop: 8, // Align avatar with text
     },
 });
